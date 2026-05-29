@@ -532,3 +532,98 @@ body {
     font-weight: 700;
     margin: 28px 0;
 }
+
+
+/* =========================
+   ANIMASI GLOBAL
+========================= */
+
+button,
+.btn-primary,
+.btn-dark,
+.register-btn,
+.google-btn,
+.logout-btn,
+.profile-menu,
+.product-card,
+.barber-card,
+.navbar a {
+    transition: all 0.3s ease;
+}
+
+/* Tombol ditekan */
+button:hover,
+.btn-primary:hover,
+.btn-dark:hover,
+.register-btn:hover,
+.google-btn:hover,
+.logout-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+    cursor: pointer;
+}
+
+button:active,
+.btn-primary:active,
+.btn-dark:active,
+.register-btn:active,
+.google-btn:active,
+.logout-btn:active {
+    transform: scale(0.96);
+}
+
+/* Card layanan */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+/* Card barber */
+.barber-card:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/* Barber terpilih */
+.barber-card.selected {
+    border: 3px solid #0755d8;
+    transform: scale(1.03);
+}
+
+/* Menu profile */
+.profile-menu:hover {
+    transform: translateX(8px);
+    background: #f5f8ff;
+    cursor: pointer;
+}
+
+/* Navbar */
+.navbar a:hover {
+    transform: translateY(-4px);
+}
+
+/* Input */
+.input-wrap input,
+.input-wrap select {
+    transition: all .3s ease;
+}
+
+.input-wrap input:focus,
+.input-wrap select:focus {
+    border-color: #0755d8;
+    box-shadow: 0 0 10px rgba(7,85,216,.25);
+}
+
+/* Fade halaman */
+body {
+    animation: fadePage .5s ease;
+}
+
+@keyframes fadePage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

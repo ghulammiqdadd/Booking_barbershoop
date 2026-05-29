@@ -27,3 +27,5 @@ Route::get('/booking/confirm', [BookingController::class, 'confirm'])->name('boo
 Route::post('/booking/pay', [BookingController::class, 'pay'])->name('booking.pay');
 
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+Route::get('/profile/edit', [HomeController::class, 'editProfile'])->name('profile.edit');
+Route::post('/profile/update', [HomeController::class, 'updateProfile'])->name('profile.update');

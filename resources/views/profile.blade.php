@@ -14,7 +14,27 @@
 
     <div class="profile-card">
 
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300">
+        @if($user->photo)
+            <img
+                src="{{ asset($user->photo) }}"
+                style="
+                    width:90px;
+                    height:90px;
+                    border-radius:50%;
+                    object-fit:cover;
+                    border:3px solid #0755d8;
+                ">
+        @else
+            <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
+                style="
+                    width:90px;
+                    height:90px;
+                    border-radius:50%;
+                    object-fit:cover;
+                    border:3px solid #0755d8;
+                ">
+        @endif
 
         <div>
             <h2>{{ $user->name }}</h2>
@@ -53,13 +73,17 @@
 
     <h3 class="section-title">AKUN SAYA</h3>
 
-    <div class="profile-menu">
+    <a href="{{ route('profile.edit') }}"
+       class="profile-menu"
+       style="text-decoration:none;color:inherit">
+
         <i class="fa-regular fa-user"></i>
 
         <b>Edit Profil</b>
 
         <span>›</span>
-    </div>
+
+    </a>
 
     <div class="profile-menu">
         <i class="fa-solid fa-lock"></i>

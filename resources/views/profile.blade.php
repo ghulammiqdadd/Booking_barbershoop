@@ -85,31 +85,43 @@
 
     </a>
 
-    <div class="profile-menu">
-        <i class="fa-solid fa-lock"></i>
+    <a href="{{ route('password.change') }}"
+   class="profile-menu"
+   style="text-decoration:none;color:inherit">
 
-        <b>Ubah Kata Sandi</b>
+    <i class="fa-solid fa-lock"></i>
 
-        <span>›</span>
-    </div>
+    <b>Ubah Kata Sandi</b>
+
+    <span>›</span>
+    </a>
 
     <h3 class="section-title">AKTIVITAS</h3>
 
-    <div class="profile-menu">
+    
+        <a href="{{ route('booking.history') }}"
+        class="profile-menu"
+        style="text-decoration:none;color:inherit">
+
         <i class="fa-solid fa-clock-rotate-left"></i>
 
         <b>Riwayat Booking</b>
 
         <span>›</span>
-    </div>
 
-    <div class="profile-menu">
-        <i class="fa-solid fa-gift"></i>
+      </a>
+    
 
-        <b>Hadiah & Loyalty</b>
+    <a href="{{ route('loyalty') }}"
+       class="profile-menu"
+       style="text-decoration:none;color:inherit">
+       <i class="fa-solid fa-gift"></i>
+
+       <b>Hadiah & Loyalty</b>
 
         <span>›</span>
-    </div>
+
+    </a>
 
     <h3 class="section-title">BANTUAN & LEGAL</h3>
 

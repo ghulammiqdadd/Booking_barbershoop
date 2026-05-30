@@ -29,3 +29,10 @@ Route::post('/booking/pay', [BookingController::class, 'pay'])->name('booking.pa
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 Route::get('/profile/edit', [HomeController::class, 'editProfile'])->name('profile.edit');
 Route::post('/profile/update', [HomeController::class, 'updateProfile'])->name('profile.update');
+
+Route::get('/change-password', [HomeController::class, 'changePassword'])->name('password.change');
+Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('password.update');
+
+Route::get('/booking-history', [BookingController::class, 'history']) ->name('booking.history');
+
+Route::get('/loyalty', [HomeController::class, 'loyalty'])->name('loyalty');

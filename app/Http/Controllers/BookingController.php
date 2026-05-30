@@ -66,7 +66,23 @@ class BookingController extends Controller
             'time',
         ]);
 
+        $user = auth()->user();
+
+        $user->loyalty_points += session('price') / 1000;
+
+        $user->save();
+
+
         return redirect('/home')
             ->with('success', 'Booking berhasil dibayar');
     }
+
+    public function history()
+  {
+    $bookings = Booking::where('user_id', auth()->id())
+        ->latest()
+        ->get();
+
+    return view('booking-history', compact('bookings'));
+  }
 }

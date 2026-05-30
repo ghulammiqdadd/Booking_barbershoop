@@ -22,7 +22,7 @@
 
             @if($user->photo)
                 <img
-                    src="{{ asset('storage/'.$user->photo) }}"
+                    src="{{ asset($user->photo) }}"
                     style="
                         width:120px;
                         height:120px;
@@ -42,7 +42,11 @@
 
             <br><br>
 
-            <input type="file" name="photo">
+            <input type="file" name="photo" accept="image/jpeg,image/png,image/webp">
+
+            @error('photo')
+                <p style="color:red;margin-top:8px">{{ $message }}</p>
+            @enderror
         </div>
 
         <label>Nama</label>

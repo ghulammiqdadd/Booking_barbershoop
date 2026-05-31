@@ -59,7 +59,7 @@
     </div>
 
     <p style="text-align:right; margin-top:22px">
-        <a href="#" class="link">Lupa Kata Sandi?</a>
+        <a href="{{ route('forgot.password') }}" class="link">Lupa Kata Sandi?</a>
     </p>
 
     <button type="submit" class="btn-primary">

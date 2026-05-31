@@ -46,6 +46,8 @@ class BookingController extends Controller
 
     public function pay()
     {
+        $price = (int) session('price', 0);
+
         Booking::create([
             'user_id' => auth()->id(),
             'nama_layanan' => session('service_name'),
@@ -53,9 +55,13 @@ class BookingController extends Controller
             'tanggal' => session('date'),
             'jam' => session('time'),
             'durasi' => session('duration'),
-            'harga' => session('price'),
+            'harga' => $price,
             'status' => 'paid',
         ]);
+
+        $user = auth()->user();
+        $user->loyalty_points += (int) floor($price / 1000);
+        $user->save();
 
         session()->forget([
             'service_name',
@@ -65,13 +71,6 @@ class BookingController extends Controller
             'date',
             'time',
         ]);
-
-        $user = auth()->user();
-
-        $user->loyalty_points += session('price') / 1000;
-
-        $user->save();
-
 
         return redirect('/home')
             ->with('success', 'Booking berhasil dibayar');

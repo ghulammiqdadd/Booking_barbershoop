@@ -63,4 +63,31 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
+
+    public function forgotPassword()
+{
+    return view('forgot-password');
+}
+
+  public function resetPassword(Request $request)
+  {
+    $request->validate([
+        'phone' => 'required',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $user = User::where('phone', $request->phone)->first();
+
+    if (!$user) {
+        return back()->withErrors([
+            'phone' => 'Nomor HP tidak ditemukan.',
+        ])->withInput();
+    }
+
+    $user->password = Hash::make($request->password);
+    $user->save();
+
+    return redirect()->route('login')
+        ->with('success', 'Password berhasil direset. Silakan login.');
+   }
 }

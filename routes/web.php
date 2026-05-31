@@ -17,6 +17,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot.password');
+Route::post('/forgot-password', [AuthController::class, 'resetPassword'])->name('reset.password');
+
+Route::middleware('auth')->group(function () {
 Route::get('/booking/service', [BookingController::class, 'service'])->name('booking.service');
 Route::post('/booking/service/save', [BookingController::class, 'saveService'])->name('booking.save.service');
 
@@ -36,3 +40,5 @@ Route::post('/change-password', [HomeController::class, 'updatePassword'])->name
 Route::get('/booking-history', [BookingController::class, 'history']) ->name('booking.history');
 
 Route::get('/loyalty', [HomeController::class, 'loyalty'])->name('loyalty');
+
+});
